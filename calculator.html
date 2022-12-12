@@ -16,30 +16,32 @@
         <p class="brand">stevencol©</p>
     <div class="display">
       
-        <p id="display"></p>
+        <p id="display">.</p>
     </div>
     <div class="keyboard">
-<button value="1" class="number" >1</button>
-<button value="2" class="number">2</button>
-<button  value="3"  class="number">3</button>
-<button  class="operator">-</button>
-<button value="4" class="number">4</button>
-<button  value="5" class="number">5</button>
-<button  value="6" class="number">6</button>
-<button class="operator">+</button>
-<button value="7" class="number">7</button>
-<button  value="8"  class="number">8</button>
-<button  value="9" class="number">9</button>
-<button class="operator">*</button>
-<button class="operator">=</button>
-<button value="0" class="number">0</button>
+<button  id="1" class="number" onclick="addDisplay(1)">1</button>
+<button  id="2"  class="number" onclick="addDisplay(2)">2</button>
+<button  id="3" class="number" onclick="addDisplay(3)">3</button>
+<button  class="operator" onclick="operate('-')">-</button>
+<button value="4"  id="4" class="number" onclick="addDisplay(4)">4</button>
+<button  value="5" id="5" class="number" onclick="addDisplay(5)">5</button>
+<button  value="6"  id="6" class="number" onclick="addDisplay(6)">6</button>
+<button class="operator" onclick="operate('+')">+</button>
+<button value="7"  id="7"  class="number" onclick="addDisplay(7)">7</button>
+<button  value="8"   id="8"class="number" onclick="addDisplay(8)">8</button>
+<button  value="9" id="9" class="number" onclick="addDisplay(9)">9</button>
+<button class="operator" onclick="operate('*')">*</button>
+<button class="operator" onclick="result()">=</button>
+<button value="0"  id="0" class="number" onclick="addDisplay(0)">0</button>
 <button class="operator">/</button>
-<button class="operator">c</button>
+<button class="operator" onclick="deleteDigit()"><</button>
 
     </div>
 </div>
    </section>
 
     </main>
+
+    <script src="js/calculator.js" ></script>
 </body>
 </html>
