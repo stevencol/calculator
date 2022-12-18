@@ -52,9 +52,9 @@
 
 .keyboard {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto  auto ;
   width: 80%;
-  flex-direction: row;
+  
   justify-content: center;
 
   text-align: center;
@@ -68,8 +68,8 @@
     background: #8a92a6;
     color: white;
     border: none;
-    font-size: 20px;
-    font-family: keyboard;
+    font-size: 25px;
+    font-family:"keyboard";
     border-radius: 4px;
   }
   

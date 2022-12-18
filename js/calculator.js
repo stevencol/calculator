@@ -1,7 +1,7 @@
 //buttons value
 let display = document.getElementById("display");
-let value1 = "";
-let value2 = null;
+let value1 = 0;
+let value2 = 0;
 let value3 = 0;
 let lastOperator = "";
 
@@ -27,74 +27,90 @@ const deleteDigit = () => {
   }
 };
 
-const operate = (operate) => {
-  switch (operate) {
+const checkLastOperation = (lastOperator) => {
+  return (lastOperator = lastOperator != "");
+};
+
+const addition = (operator) => {
+
+  if (lastOperator != "") {
+    let finalOperator = lastOperator;
+    lastOperator = "";
+    operate(finalOperator);
+  }
+  value3 = value1 + value2;
+  value2 = value3;
+  value1 = 0;
+  display.innerHTML = value2;
+  lastOperator = operator;
+};
+
+const subtraction = (operator) => {
+  if (lastOperator != "") {
+    let finalOperator = lastOperator;
+    lastOperator = "";
+    operate(finalOperator);
+  }
+
+  value3 = value2 == 0 ? value1 : value2 - value1;
+  value2 = value3;
+  value1 = 0;
+  display.innerHTML = value2;
+  lastOperator = operator;
+};
+
+const multiplication = (operator) => {
+  if (lastOperator != "") {
+    let finalOperator = lastOperator;
+    lastOperator = "";
+    operate(finalOperator);
+  }
+
+  console.log(value1);
+  value3 = value2 == 0 ? value1 : value2 * value1;
+  value2 = value3;
+  console.log(value2);
+  value1 = 0;
+  display.innerHTML = value2;
+  lastOperator = operator;
+  console.log(operator);
+};
+
+const division = (operator) => {
+  if (lastOperator != "") {
+    let finalOperator = lastOperator;
+    lastOperator = "";
+    operate(finalOperator);
+  }
+
+  value3 = value2 == 0 ? value1 : value2/ value1;
+    value2 = value3;
+  value1 = 0;
+  display.innerHTML = value2;
+  lastOperator = operator;
+};
+
+
+const operate = (operator) => {
+  switch (operator) {
     case "+":
-      if (value2 == null) {
-        value2 = value1;
-        console.log(value2);
-        value1 = 0;
-      } else {
-        console.log(value1, value2);
-
-        value3 = value2 + value1;
-        value2 = value3;
-        display.innerHTML = value3;
-
-        value1 = 0;
-      }
+      addition(operator);
 
       break;
     case "-":
-      if (value2 == null) {
-        value2 = value1;
-        console.log(value2 + "si endrteo");
-        value1 = 0;
-      } else {
-        console.log(value1, value2);
+      subtraction(operator);
 
-        value3 = value2 - value1;
-        value2 = value3;
-        display.innerHTML = value3;
-        console.log(value2);
-        value1 = 0;
-
-      }
       break;
     case "*":
-      if (value2 == null) {
-        value2 = value1;
-        console.log(value2 + "si endrteo");
-        value1 = 0;
-      } else {
-        console.log(value1, value2);
-
-        value3 = value2 * value1;
-        value2 = value3;
-        display.innerHTML = value3;
-        console.log(value2);
-        value1 = 0;
-
-      }
-
+      multiplication(operator);
       break;
-      case "/":
-      if (value2 == null) {
-        value2 = value1;
-        console.log(value2 + "si endrteo");
-        value1 = 0;
-      } else {
-        console.log(value1, value2);
-
-        value3 = value2 / value1;
-        value2 = value3;
-        display.innerHTML = value3;
-        console.log(value2);
-        value1 = 0;
-
-      }
-
+    case "/":
+      division(operator);
       break;
+
+    case "=":
+      console.log("===");
+      operate(lastOperator);
 
     default:
       break;
