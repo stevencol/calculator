@@ -4,6 +4,8 @@ let value1 = 0;
 let value2 = 0;
 let value3 = 0;
 let lastOperator = "";
+let resultado;
+let nextOperator;
 
 const addDisplay = (number) => {
   console.log(number);
@@ -27,90 +29,84 @@ const deleteDigit = () => {
   }
 };
 
-const checkLastOperation = (lastOperator) => {
-  return (lastOperator = lastOperator != "");
-};
 
-const addition = (operator) => {
+const checkLastOperation = (currentOperator) => {
 
-  if (lastOperator != "") {
-    let finalOperator = lastOperator;
-    lastOperator = "";
-    operate(finalOperator);
-  }
-  value3 = value1 + value2;
-  value2 = value3;
-  value1 = 0;
-  display.innerHTML = value2;
-  lastOperator = operator;
-};
-
-const subtraction = (operator) => {
-  if (lastOperator != "") {
-    let finalOperator = lastOperator;
-    lastOperator = "";
-    operate(finalOperator);
+  if (resultado == null && value2 == 0) {
+    value2 = value1;
+    value1 = 0;
+    lastOperator=currentOperator;
+    console.log("entro y gaurda el valor 1 en en 2 y guarda operador  y lo borra de la variable principal" + " valor 2: " +value2 +"Operador:; " + lastOperator) ;
+    
+    currentOperator = "";
   }
 
-  value3 = value2 == 0 ? value1 : value2 - value1;
-  value2 = value3;
-  value1 = 0;
-  display.innerHTML = value2;
-  lastOperator = operator;
+  else if (lastOperator != "") {
+
+  console.log(" opera con el anterio que es" + lastOperator);
+ 
+    operate(lastOperator);
+    lastOperator=currentOperator;
+    currentOperator="";
+    console.log(" guarda en nuevo borerador  y borra el viejo" + lastOperator);
+    value2 = resultado;
+    value1 = 0;
+    display.innerHTML = resultado;
+     
+  }
+
+
+
+
+};
+
+
+
+const addition = () => {
+  console.log(value2 + value1 + " merodo sumar ")
+  return value2 + value1;
+
+};
+
+const subtraction = () => {
+  return value2 - value1;
 };
 
 const multiplication = (operator) => {
-  if (lastOperator != "") {
-    let finalOperator = lastOperator;
-    lastOperator = "";
-    operate(finalOperator);
-  }
-
-  console.log(value1);
-  value3 = value2 == 0 ? value1 : value2 * value1;
-  value2 = value3;
-  console.log(value2);
-  value1 = 0;
-  display.innerHTML = value2;
-  lastOperator = operator;
-  console.log(operator);
+  return value2 * value1;
 };
 
 const division = (operator) => {
-  if (lastOperator != "") {
-    let finalOperator = lastOperator;
-    lastOperator = "";
-    operate(finalOperator);
-  }
-
-  value3 = value2 == 0 ? value1 : value2/ value1;
-    value2 = value3;
-  value1 = 0;
-  display.innerHTML = value2;
-  lastOperator = operator;
+  return value2 / value1;
 };
 
+const result =() => {
+  operate(lastOperator);
+}
 
-const operate = (operator) => {
+
+const operate = (operator, value1, value2) => {
   switch (operator) {
     case "+":
-      addition(operator);
+      resultado = addition(this.value1, this.value2);
+
 
       break;
     case "-":
-      subtraction(operator);
+      resultado = subtraction(this.value1, this.value2);
 
       break;
     case "*":
-      multiplication(operator);
+      resultado = multiplication(this.value1, this.value2);
       break;
     case "/":
-      division(operator);
+      resultado = division(this.value1, this.value2);
       break;
 
     case "=":
       console.log("===");
-      operate(lastOperator);
+      result();
+      break;
 
     default:
       break;
