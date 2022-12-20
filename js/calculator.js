@@ -32,27 +32,38 @@ const deleteDigit = () => {
 
 const checkLastOperation = (currentOperator) => {
 
-  if (resultado == null && value2 == 0) {
+  if (resultado == null && value2 != null && lastOperator=="") {
     value2 = value1;
     value1 = 0;
     lastOperator=currentOperator;
     console.log("entro y gaurda el valor 1 en en 2 y guarda operador  y lo borra de la variable principal" + " valor 2: " +value2 +"Operador:; " + lastOperator) ;
     
     currentOperator = "";
+    console.log("1");
   }
 
-  else if (lastOperator != "") {
-
+  else if (lastOperator != "=" && lastOperator != "" || value2!=null) {
+   
   console.log(" opera con el anterio que es" + lastOperator);
  
     operate(lastOperator);
-    lastOperator=currentOperator;
+    lastOperator= currentOperator=="="? "":currentOperator; 
+   
     currentOperator="";
     console.log(" guarda en nuevo borerador  y borra el viejo" + lastOperator);
     value2 = resultado;
     value1 = 0;
     display.innerHTML = resultado;
-     
+    console.log("2");
+  }
+
+  if(currentOperator=="="){
+    operate(lastOperator);
+    value2=resultado;
+     value1 = 0;
+    display.innerHTML = resultado;
+    console.log(value2);
+    console.log("curente");
   }
 
 
@@ -63,7 +74,6 @@ const checkLastOperation = (currentOperator) => {
 
 
 const addition = () => {
-  console.log(value2 + value1 + " merodo sumar ")
   return value2 + value1;
 
 };
@@ -80,9 +90,14 @@ const division = (operator) => {
   return value2 / value1;
 };
 
-const result =() => {
-  operate(lastOperator);
-}
+
+const result = (operator) => {
+
+  operate(lastOperator, this.value1 , this.value2);
+ 
+
+  
+};
 
 
 const operate = (operator, value1, value2) => {
@@ -104,8 +119,7 @@ const operate = (operator, value1, value2) => {
       break;
 
     case "=":
-      console.log("===");
-      result();
+      checkLastOperation(lastOperator);
       break;
 
     default:
