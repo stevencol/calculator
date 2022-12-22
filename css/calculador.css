@@ -1,12 +1,12 @@
 @font-face {
-  font-family: "digital";
+  font-family: 'digital';
   src: url(../fonts/DS-DIGIB.TTF);
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
-  font-family: "keyboard";
+  font-family: 'keyboard';
   src: url(../fonts/pocket_calcuatlor_tt.ttf);
   font-style: normal;
   font-weight: normal;
@@ -16,33 +16,34 @@
   box-sizing: border-box;
 }
 
+.calculator-wrapper {
+  display: flex;
+}
+
 .calculator {
+  background: #59627f;
+  border: solid black 1px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 10%;
-  border: solid black 1px;
   justify-content: center;
-  background: #59627f;
+  padding: 0.5rem;
+  gap: 8px;
 }
 
 .brand {
-  width: 90%;
-  text-align: left;
   color: white;
-  padding: 1px;
-  margin: 3px;
-  font-family: "digital";
+  font-family: 'digital';
+  padding: 0;
+  margin: 0;
 }
 .display {
-  font-family: "digital";
+  font-family: 'digital';
   background: url(../img/pantalla.png);
   background-size: cover;
   color: black;
-  width: 80%;
+  width: 100%;
   padding: 10px;
   border: solid black 1px;
-  margin: 4px;
 }
 .display p {
   text-align: right;
@@ -52,382 +53,45 @@
 
 .keyboard {
   display: grid;
-  grid-template-columns: auto auto auto  auto ;
-  width: 80%;
-  
-  justify-content: center;
-
-  text-align: center;
-}
-
-.keyboard button {
-  margin: 5px;
+  gap: 8px;
+  grid-template-columns: auto auto auto auto;
 }
 
 .number {
-    background: #8a92a6;
-    color: white;
-    border: none;
-    font-size: 25px;
-    font-family:"keyboard";
-    border-radius: 4px;
-  }
-  
-  .number:hover {
-    background: green;
-    transform: scale(1.2);
-  }
-  
-  .number:active {
-    background: red;
-    transform: scale(0.9);
-  }
-  
-  .operator {
-    background: #b37f9f;
-    color: white;
-    border: none;
-    font-size: 20px;
-    font-family: keyboard;
-    border-radius: 4px;
-  }
-  
-  .operator:hover {
-    background: #7f80b3;
-    transform: scale(1.2);
-  }
-  
-  .operator:active {
-    background: red;
-    transform: scale(0.9);
-  }
-
-@media screen and (max-width: 1380px) {
-  .calculator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 12%;
-    border: solid black 1px;
-    justify-content: center;
-  }
-
-  .display {
-    font-family: "digital";
-    background: url(../img/pantalla.png);
-    background-size: cover;
-    color: black;
-    width: 90%;
-    padding: 10px;
-    border: solid black 1px;
-    margin: 4px;
-  }
-  .display p {
-    text-align: right;
-    padding: 0px;
-    margin: 0px;
-  }
-
-  .keyboard {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    width: 80%;
-    flex-direction: row;
-    justify-content: center;
-
-    text-align: center;
-  }
-
-  .keyboard button {
-    margin: 3px;
-  }
+  background: #8a92a6;
+  color: white;
+  border: none;
+  font-size: 25px;
+  font-family: 'keyboard';
+  border-radius: 4px;
 }
 
-@media screen and (max-width: 1024px) {
-  .calculator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 15%;
-    border: solid black 1px;
-    justify-content: center;
-  }
-
-  .display {
-    font-family: "digital";
-    background: url(../img/pantalla.png);
-    background-size: cover;
-    color: black;
-    width: 90%;
-    padding: 10px;
-    border: solid black 1px;
-    margin: 4px;
-  }
-  .display p {
-    text-align: right;
-    padding: 0px;
-    margin: 0px;
-  }
-
-  .keyboard {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    width: 80%;
-    flex-direction: row;
-    justify-content: center;
-
-    text-align: center;
-  }
-
-  .keyboard button {
-    margin: 3px;
-  }
+.number:hover {
+  background: green;
+  transform: scale(1.2);
 }
 
-
-
-@media screen and (max-width: 860px) {
-  .calculator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 18%;
-    border: solid black 1px;
-    justify-content: center;
-  }
-
-  .display {
-    font-family: "digital";
-    background: url(../img/pantalla.png);
-    background-size: cover;
-    color: black;
-    width: 90%;
-    padding: 10px;
-    border: solid black 1px;
-    margin: 4px;
-  }
-  .display p {
-    text-align: right;
-    padding: 0px;
-    margin: 0px;
-  }
-
-  .keyboard {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    width: 80%;
-    flex-direction: row;
-    justify-content: center;
-
-    text-align: center;
-  }
-
-  .keyboard button {
-    margin: 3px;
-  }
+.number:active {
+  background: red;
+  transform: scale(0.9);
 }
 
-@media screen and (max-width: 720px) {
-  .calculator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 25%;
-    border: solid black 1px;
-    justify-content: center;
-  }
-
-  .display {
-    font-family: "digital";
-    background: url(../img/pantalla.png);
-    background-size: cover;
-    color: black;
-    width: 90%;
-    padding: 10px;
-    border: solid black 1px;
-    margin: 4px;
-  }
-  .display p {
-    text-align: right;
-    padding: 0px;
-    margin: 0px;
-  }
-
-  .keyboard {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    width: 80%;
-    flex-direction: row;
-    justify-content: center;
-
-    text-align: center;
-  }
-
-  .keyboard button {
-    margin: 3px;
-  }
+.operator {
+  background: #b37f9f;
+  color: white;
+  border: none;
+  font-size: 20px;
+  font-family: keyboard;
+  border-radius: 4px;
 }
 
-@media screen and (max-width: 480px) {
-  .calculator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 35%;
-    border: solid black 1px;
-    justify-content: center;
-  }
-
-  .display {
-    font-family: "digital";
-    background: url(../img/pantalla.png);
-    background-size: cover;
-    color: black;
-    width: 90%;
-    padding: 10px;
-    border: solid black 1px;
-    margin: 3px;
-  }
-  .display p {
-    text-align: right;
-    padding: 0px;
-    margin: 0px;
-  }
-
-  .keyboard {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    width: 80%;
-    flex-direction: row;
-    justify-content: center;
-
-    text-align: center;
-  }
-
-  .keyboard button {
-    margin: 3px;
-  }
+.operator:hover {
+  background: #7f80b3;
+  transform: scale(1.2);
 }
 
-@media screen and (max-width: 360px) {
-  .calculator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 35%;
-    border: solid black 1px;
-    justify-content: center;
-  }
-
-  .display {
-    font-family: "digital";
-    background: url(../img/pantalla.png);
-    background-size: cover;
-    color: black;
-    width: 90%;
-    padding: 10px;
-    border: solid black 1px;
-    margin: 3px;
-  }
-  .display p {
-    text-align: right;
-    padding: 0px;
-    margin: 0px;
-  }
-
-  .keyboard {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    width: 80%;
-    flex-direction: row;
-    justify-content: center;
-
-    text-align: center;
-  }
-
-  .keyboard button {
-    margin: 3px;
-  }
+.operator:active {
+  background: red;
+  transform: scale(0.9);
 }
 
-@media screen and (max-width: 340px) {
-  .calculator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 55%;
-    border: solid black 1px;
-    justify-content: center;
-  }
-
-  .display {
-    font-family: "digital";
-    background: url(../img/pantalla.png);
-    background-size: cover;
-    color: black;
-    width: 90%;
-    padding: 10px;
-    border: solid black 1px;
-    margin: 3px;
-  }
-  .display p {
-    text-align: right;
-    padding: 0px;
-    margin: 0px;
-  }
-
-  .keyboard {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    width: 80%;
-    flex-direction: row;
-    justify-content: center;
-
-    text-align: center;
-  }
-
-  .keyboard button {
-    margin: 3px;
-  }
-}
-
-@media screen and (max-width: 240px) {
-  .calculator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 90%;
-    border: solid black 1px;
-    justify-content: center;
-  }
-
-  .display {
-    font-family: "digital";
-    background: url(../img/pantalla.png);
-    background-size: cover;
-    color: black;
-    width: 90%;
-    padding: 10px;
-    border: solid black 1px;
-    margin: 3px;
-  }
-  .display p {
-    text-align: right;
-    padding: 0px;
-    margin: 0px;
-  }
-
-  .keyboard {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    width: 80%;
-    flex-direction: row;
-    justify-content: center;
-
-    text-align: center;
-  }
-
-  .keyboard button {
-    margin: 3px;
-  }
-}
